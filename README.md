@@ -51,8 +51,8 @@ This project contains the Lighthouse Innovation Readiness Index assessment tool 
 1. **Clone the Repo**
    Open a terminal and run:
    ```bash
-   git clone https://github.com/jaiminshahh/digital-miq-tracker.git
-   cd digital-miq-tracker
+   git clone https://github.com/jaiminshahh/Lighthouse-Innovation-Readiness-Index.git
+   cd Lighthouse-Innovation-Readiness-Index
    ```
 
 2. **Open in Your Code Editor**
@@ -64,7 +64,7 @@ This project contains the Lighthouse Innovation Readiness Index assessment tool 
 ### Setting Up the Project
 
 1. **Install Dependencies**
-   In your terminal (inside the digital-miq-tracker folder), run:
+   In your terminal (inside the Lighthouse-Innovation-Readiness-Index folder), run:
    ```bash
    npm install
    ```
