@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Home, BarChart3, BrainCircuit } from "lucide-react";
 import { useLocation, Link } from "react-router-dom";
@@ -19,7 +18,7 @@ const NavBar = () => {
         <div className="mr-4 flex items-center">
           <Link to="/" className="flex items-center space-x-2">
             <BrainCircuit className="h-6 w-6 text-miq-primary" />
-            <span className="font-bold text-xl text-miq-primary">MIQ Compass</span>
+            <span className="font-bold text-xl text-miq-primary">Lighthouse Innovation Readiness Index</span>
           </Link>
         </div>
         <nav className="flex items-center space-x-6 text-sm font-medium ml-auto">

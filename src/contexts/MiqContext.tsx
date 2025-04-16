@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 export type Category = {
@@ -27,20 +26,18 @@ export type Option = {
 export const categories: Category[] = [
   {
     id: "technology",
-    name: "Technology Strength",
-    description: "Are you using modern IT & AI?",
-    icon: "laptop",
+    name: "Technology Landscape Readiness",
+    description: "Are you using modern IT & AI technologies effectively?",
+    icon: "server",
     completed: false,
     score: null,
-    questions: Array(8).fill(null).map((_, i) => ({
-      id: `tech-q${i+1}`,
-      text: `Technology question ${i+1}: How would you rate your organization's ${['adoption of cloud technologies', 'IT infrastructure modernity', 'data security measures', 'use of automation tools', 'technology integration', 'hardware refresh cycles', 'software update frequency', 'technical debt management'][i]}?`,
+    questions: Array(10).fill(null).map((_, i) => ({
+      id: `technology-q${i+1}`,
+      text: `Technology Landscape Readiness question ${i+1}`,
       options: [
-        { value: "1", label: "Beginning", score: 1 },
-        { value: "2", label: "Developing", score: 2 },
-        { value: "3", label: "Established", score: 3 },
-        { value: "4", label: "Advanced", score: 4 },
-        { value: "5", label: "Leading", score: 5 },
+        { value: "0", label: "Not implemented", score: 0 },
+        { value: "3", label: "Partially implemented", score: 3 },
+        { value: "5", label: "Fully implemented", score: 5 },
       ],
       answer: null,
     })),
@@ -52,35 +49,31 @@ export const categories: Category[] = [
     icon: "users",
     completed: false,
     score: null,
-    questions: Array(8).fill(null).map((_, i) => ({
+    questions: Array(10).fill(null).map((_, i) => ({
       id: `culture-q${i+1}`,
-      text: `Culture question ${i+1}: How would you rate your organization's ${['leadership support for innovation', 'acceptance of failure as learning', 'cross-functional collaboration', 'agile methodologies adoption', 'employee empowerment', 'continuous learning culture', 'reward systems for innovation', 'organizational transparency'][i]}?`,
+      text: `Organizational Culture question ${i+1}`,
       options: [
-        { value: "1", label: "Beginning", score: 1 },
-        { value: "2", label: "Developing", score: 2 },
-        { value: "3", label: "Established", score: 3 },
-        { value: "4", label: "Advanced", score: 4 },
-        { value: "5", label: "Leading", score: 5 },
+        { value: "0", label: "Not developed", score: 0 },
+        { value: "3", label: "Partially developed", score: 3 },
+        { value: "5", label: "Fully developed", score: 5 },
       ],
       answer: null,
     })),
   },
   {
     id: "workforce",
-    name: "Digital Workforce Readiness",
+    name: "Digital Capability Readiness",
     description: "Do employees have the right skills?",
     icon: "graduation-cap",
     completed: false,
     score: null,
-    questions: Array(8).fill(null).map((_, i) => ({
+    questions: Array(10).fill(null).map((_, i) => ({
       id: `workforce-q${i+1}`,
-      text: `Workforce question ${i+1}: How would you rate your organization's ${['digital literacy training programs', 'technical skill development', 'change management capabilities', 'talent acquisition for digital roles', 'remote work capabilities', 'digital collaboration tools usage', 'employee adaptability to new tools', 'digital leadership development'][i]}?`,
+      text: `Digital Capability Readiness question ${i+1}`,
       options: [
-        { value: "1", label: "Beginning", score: 1 },
-        { value: "2", label: "Developing", score: 2 },
-        { value: "3", label: "Established", score: 3 },
-        { value: "4", label: "Advanced", score: 4 },
-        { value: "5", label: "Leading", score: 5 },
+        { value: "0", label: "Not available", score: 0 },
+        { value: "3", label: "Partially available", score: 3 },
+        { value: "5", label: "Fully available", score: 5 },
       ],
       answer: null,
     })),
@@ -92,35 +85,31 @@ export const categories: Category[] = [
     icon: "compass",
     completed: false,
     score: null,
-    questions: Array(8).fill(null).map((_, i) => ({
+    questions: Array(10).fill(null).map((_, i) => ({
       id: `strategy-q${i+1}`,
-      text: `Strategy question ${i+1}: How would you rate your organization's ${['ability to anticipate market changes', 'speed of strategic decision-making', 'business model adaptability', 'crisis response planning', 'competitive intelligence capabilities', 'vision clarity and communication', 'portfolio management flexibility', 'scenario planning processes'][i]}?`,
+      text: `Strategic Agility question ${i+1}`,
       options: [
-        { value: "1", label: "Beginning", score: 1 },
-        { value: "2", label: "Developing", score: 2 },
-        { value: "3", label: "Established", score: 3 },
-        { value: "4", label: "Advanced", score: 4 },
-        { value: "5", label: "Leading", score: 5 },
+        { value: "0", label: "No strategy exists", score: 0 },
+        { value: "3", label: "Basic strategy exists", score: 3 },
+        { value: "5", label: "Comprehensive strategy", score: 5 },
       ],
       answer: null,
     })),
   },
   {
     id: "finance",
-    name: "Financial Strength",
+    name: "Financial Readiness",
     description: "Are you funding the right innovations?",
     icon: "dollar-sign",
     completed: false,
     score: null,
-    questions: Array(8).fill(null).map((_, i) => ({
+    questions: Array(10).fill(null).map((_, i) => ({
       id: `finance-q${i+1}`,
-      text: `Financial question ${i+1}: How would you rate your organization's ${['innovation investment planning', 'ROI measurement for digital initiatives', 'funding allocation processes', 'cost management of technology', 'financial risk assessment', 'digital value creation metrics', 'budget flexibility for opportunities', 'capital allocation efficiency'][i]}?`,
+      text: `Financial Readiness question ${i+1}`,
       options: [
-        { value: "1", label: "Beginning", score: 1 },
-        { value: "2", label: "Developing", score: 2 },
-        { value: "3", label: "Established", score: 3 },
-        { value: "4", label: "Advanced", score: 4 },
-        { value: "5", label: "Leading", score: 5 },
+        { value: "0", label: "No budget allocation", score: 0 },
+        { value: "3", label: "Limited budget", score: 3 },
+        { value: "5", label: "Dedicated budget", score: 5 },
       ],
       answer: null,
     })),
@@ -132,62 +121,20 @@ export const categories: Category[] = [
     icon: "network",
     completed: false,
     score: null,
-    questions: Array(8).fill(null).map((_, i) => ({
+    questions: Array(10).fill(null).map((_, i) => ({
       id: `ecosystem-q${i+1}`,
-      text: `Ecosystem question ${i+1}: How would you rate your organization's ${['startup partnership programs', 'academic collaboration initiatives', 'industry consortium participation', 'open innovation practices', 'API ecosystem development', 'co-creation with customers', 'strategic alliance management', 'ecosystem diversity'][i]}?`,
+      text: `Ecosystem Connectivity question ${i+1}`,
       options: [
-        { value: "1", label: "Beginning", score: 1 },
-        { value: "2", label: "Developing", score: 2 },
-        { value: "3", label: "Established", score: 3 },
-        { value: "4", label: "Advanced", score: 4 },
-        { value: "5", label: "Leading", score: 5 },
-      ],
-      answer: null,
-    })),
-  },
-  {
-    id: "ai-adoption",
-    name: "AI Adoption Level",
-    description: "Are you using AI effectively?",
-    icon: "brain",
-    completed: false,
-    score: null,
-    questions: Array(8).fill(null).map((_, i) => ({
-      id: `ai-adoption-q${i+1}`,
-      text: `AI Adoption question ${i+1}: How would you rate your organization's ${['AI strategy clarity', 'AI talent acquisition', 'AI use case identification', 'data availability for AI', 'AI model deployment capabilities', 'AI solution integration', 'AI research and experimentation', 'AI scalability planning'][i]}?`,
-      options: [
-        { value: "1", label: "Beginning", score: 1 },
-        { value: "2", label: "Developing", score: 2 },
-        { value: "3", label: "Established", score: 3 },
-        { value: "4", label: "Advanced", score: 4 },
-        { value: "5", label: "Leading", score: 5 },
-      ],
-      answer: null,
-    })),
-  },
-  {
-    id: "ai-ethics",
-    name: "AI Ethics Readiness",
-    description: "Are you using AI responsibly?",
-    icon: "shield",
-    completed: false,
-    score: null,
-    questions: Array(8).fill(null).map((_, i) => ({
-      id: `ai-ethics-q${i+1}`,
-      text: `AI Ethics question ${i+1}: How would you rate your organization's ${['AI ethics policy development', 'bias detection and mitigation', 'AI transparency practices', 'privacy protection in AI', 'AI governance structures', 'responsible AI training', 'AI impact assessment processes', 'ethical review boards'][i]}?`,
-      options: [
-        { value: "1", label: "Beginning", score: 1 },
-        { value: "2", label: "Developing", score: 2 },
-        { value: "3", label: "Established", score: 3 },
-        { value: "4", label: "Advanced", score: 4 },
-        { value: "5", label: "Leading", score: 5 },
+        { value: "0", label: "No connections", score: 0 },
+        { value: "3", label: "Some partnerships", score: 3 },
+        { value: "5", label: "Strong ecosystem", score: 5 },
       ],
       answer: null,
     })),
   },
 ];
 
-type MiqContextType = {
+type InnovationContextType = {
   miqData: Category[];
   currentCategory: string | null;
   setCurrentCategory: (categoryId: string | null) => void;
@@ -199,11 +146,11 @@ type MiqContextType = {
   resetAssessment: () => void;
 };
 
-const MiqContext = createContext<MiqContextType | undefined>(undefined);
+const InnovationContext = createContext<InnovationContextType | undefined>(undefined);
 
 export const MiqProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [miqData, setMiqData] = useState<Category[]>(() => {
-    const savedData = localStorage.getItem("miqData");
+    const savedData = localStorage.getItem("innovationData");
     return savedData ? JSON.parse(savedData) : categories;
   });
   
@@ -213,7 +160,7 @@ export const MiqProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const totalCategories = miqData.length;
 
   useEffect(() => {
-    localStorage.setItem("miqData", JSON.stringify(miqData));
+    localStorage.setItem("innovationData", JSON.stringify(miqData));
     
     // Calculate overall score
     const completedCats = miqData.filter(cat => cat.completed);
@@ -273,7 +220,7 @@ export const MiqProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   return (
-    <MiqContext.Provider
+    <InnovationContext.Provider
       value={{
         miqData,
         currentCategory,
@@ -287,12 +234,12 @@ export const MiqProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       }}
     >
       {children}
-    </MiqContext.Provider>
+    </InnovationContext.Provider>
   );
 };
 
 export const useMiq = () => {
-  const context = useContext(MiqContext);
+  const context = useContext(InnovationContext);
   if (context === undefined) {
     throw new Error("useMiq must be used within a MiqProvider");
   }

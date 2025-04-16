@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useMiq } from "@/contexts/MiqContext";
 import { Button } from "@/components/ui/button";
@@ -28,9 +27,9 @@ const Dashboard: React.FC = () => {
     <div className="container py-8">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">MIQ Assessment Dashboard</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Innovation Readiness Index Dashboard</h1>
           <p className="text-muted-foreground mt-1">
-            Track your organization's digital maturity across 8 key categories
+            Track your organization's digital maturity across 6 key categories
           </p>
         </div>
         <div className="flex space-x-2">
@@ -59,8 +58,8 @@ const Dashboard: React.FC = () => {
         </div>
         <div className="md:col-span-2">
           <div className="bg-miq-light border rounded-lg p-6">
-            <h2 className="text-xl font-semibold mb-2">How MIQ Works</h2>
-            <p className="mb-4">The Maturity Intelligence Quotient (MIQ) helps you assess your organization's digital readiness through 8 categories with 8 questions each.</p>
+            <h2 className="text-xl font-semibold mb-2">How Innovation Readiness Index Works</h2>
+            <p className="mb-4">The Innovation Readiness Index helps you assess your organization's digital readiness through 6 categories with 10 questions each.</p>
             <ol className="space-y-2 list-decimal list-inside text-sm">
               <li>Select a category to begin your assessment</li>
               <li>Answer all questions in each category</li>
@@ -73,7 +72,7 @@ const Dashboard: React.FC = () => {
       </div>
       
       <h2 className="text-xl font-semibold mb-4">Assessment Categories</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4">
         {miqData.map((category) => (
           <CategoryCard 
             key={category.id} 

@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Lightbulb } from "lucide-react";
@@ -49,92 +48,70 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({ categories }) =
     const score = category.score;
     
     switch(category.id) {
-      case "technology":
-        return score < 3 ? [
-          "Conduct a technology audit to identify legacy systems",
-          "Develop a cloud migration strategy for critical applications",
-          "Implement basic automation for repetitive IT tasks"
-        ] : [
-          "Explore AI and machine learning capabilities for your data",
-          "Implement a comprehensive API strategy",
-          "Establish innovation labs to test emerging technologies"
-        ];
-      
-      case "culture":
-        return score < 3 ? [
-          "Establish regular innovation workshops for teams",
-          "Create safe spaces for experimentation and failure",
-          "Implement recognition programs for innovative ideas"
-        ] : [
-          "Develop cross-functional innovation teams",
-          "Create dedicated innovation time (20% time)",
-          "Establish innovation metrics tied to performance"
-        ];
-      
-      case "workforce":
-        return score < 3 ? [
-          "Implement basic digital literacy training program",
-          "Conduct skills gap assessment across the organization",
-          "Create learning paths for key digital roles"
-        ] : [
-          "Establish digital leadership development program",
-          "Create digital mentorship and reverse mentoring programs",
-          "Develop specialized technical training tracks"
-        ];
-        
       case "strategy":
         return score < 3 ? [
-          "Develop a digital vision and roadmap",
-          "Establish quarterly strategic review process",
-          "Create agile planning cycles for faster adaptation"
+          "Develop a clear AI strategy that aligns with business objectives",
+          "Establish executive sponsorship for AI initiatives",
+          "Allocate specific budget for AI exploration and implementation"
         ] : [
-          "Implement scenario planning for disruptive technologies",
-          "Develop ecosystem strategy with partners",
-          "Create dedicated disruption response teams"
+          "Create a comprehensive AI governance structure with clear roles",
+          "Implement quarterly AI strategy reviews with active adjustments",
+          "Develop an advanced AI ethics framework with regular monitoring"
         ];
-        
-      case "finance":
+      
+      case "data":
         return score < 3 ? [
-          "Create dedicated innovation budget",
-          "Implement stage-gate funding for digital initiatives",
-          "Develop basic ROI framework for digital investments"
-        ] : [
-          "Implement venture capital-style funding for innovations",
-          "Create digital value creation metrics",
-          "Develop portfolio approach to digital investments"
-        ];
-        
-      case "ecosystem":
-        return score < 3 ? [
-          "Identify potential startup partners in your industry",
-          "Establish relationships with local universities",
-          "Join industry consortiums focused on innovation"
-        ] : [
-          "Create startup accelerator or incubator program",
-          "Develop open innovation challenges",
-          "Establish API ecosystem for partners"
-        ];
-        
-      case "ai-adoption":
-        return score < 3 ? [
-          "Identify 2-3 initial AI use cases for your business",
+          "Develop a comprehensive data strategy and governance framework",
           "Establish data quality improvement initiatives",
-          "Conduct AI awareness training for leadership"
+          "Implement basic data security measures across the organization"
         ] : [
-          "Create AI center of excellence",
-          "Develop comprehensive AI strategy across functions",
-          "Implement AI governance framework"
+          "Create advanced data preparation pipelines for AI workloads",
+          "Implement comprehensive data cataloging and metadata management",
+          "Develop sophisticated systems for handling all data types"
+        ];
+      
+      case "technical":
+        return score < 3 ? [
+          "Assess current computing resources and identify gaps for AI workloads",
+          "Develop a cloud migration strategy for AI implementations",
+          "Implement basic data integration capabilities across systems"
+        ] : [
+          "Deploy high-performance computing resources for AI workloads",
+          "Implement advanced CI/CD pipelines for AI model deployment",
+          "Develop AI-specific security protocols and monitoring"
         ];
         
-      case "ai-ethics":
+      case "skills":
         return score < 3 ? [
-          "Develop basic AI ethics guidelines",
-          "Implement data privacy protections",
-          "Create AI impact assessment process"
+          "Conduct an AI skills gap assessment across the organization",
+          "Implement basic AI literacy training for leadership team",
+          "Develop relationships with AI experts and consultants"
         ] : [
-          "Establish AI ethics board with diverse perspectives",
-          "Develop comprehensive responsible AI framework",
-          "Implement advanced bias detection and mitigation"
+          "Build a strong technical team with AI expertise",
+          "Create comprehensive AI skill development programs",
+          "Develop sophisticated AI value measurement frameworks"
+        ];
+        
+      case "process":
+        return score < 3 ? [
+          "Establish formal processes for AI use case identification",
+          "Develop basic AI project prioritization framework",
+          "Implement initial AI risk assessment procedures"
+        ] : [
+          "Create mature AI development and deployment methodologies",
+          "Implement rigorous testing and validation processes for AI models",
+          "Develop robust continuous improvement systems for AI solutions"
+        ];
+        
+      case "culture":
+        return score < 3 ? [
+          "Foster a culture of data-driven decision making",
+          "Create safe spaces for AI experimentation and learning",
+          "Improve collaboration between technical and business teams"
+        ] : [
+          "Develop strong innovation culture with full leadership support",
+          "Create comprehensive learning and upskilling programs for AI",
+          "Establish complete transparency around AI initiatives and impacts"
         ];
         
       default:

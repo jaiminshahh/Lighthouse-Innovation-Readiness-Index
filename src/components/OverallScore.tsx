@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -20,7 +19,7 @@ const OverallScore: React.FC<OverallScoreProps> = ({
   return (
     <Card>
       <CardHeader className="pb-2">
-        <CardTitle className="text-xl">Overall MIQ Score</CardTitle>
+        <CardTitle className="text-xl">Overall Innovation Readiness Score</CardTitle>
         <CardDescription>
           Your digital maturity assessment across all categories
         </CardDescription>
