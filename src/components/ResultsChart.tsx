@@ -31,7 +31,11 @@ const ResultsChart: React.FC<ResultsChartProps> = ({ categories }) => {
               fill="#168A9C"
               fillOpacity={0.6}
             />
-            <Tooltip formatter={(value) => [`${value.toFixed(1)}/5`, "Score"]} />
+            <Tooltip formatter={(value) => {
+              // Check if value is a number before calling toFixed
+              const formattedValue = typeof value === 'number' ? value.toFixed(1) : value;
+              return [`${formattedValue}/5`, "Score"];
+            }} />
             <Legend />
           </RadarChart>
         </ResponsiveContainer>

@@ -1,15 +1,15 @@
 
 import React from "react";
-import { icons } from "lucide-react";
-import { LucideProps } from "lucide-react";
-import dynamicIconImports from "lucide-react/dynamicIconImports";
+import { LucideIcon, LucideProps } from "lucide-react";
+import * as icons from "lucide-react";
 
-interface IconProps extends LucideProps {
+interface IconProps extends Omit<LucideProps, 'ref'> {
   name: string;
 }
 
 export const Icon: React.FC<IconProps> = ({ name, ...props }) => {
-  const IconComponent = icons[name as keyof typeof icons];
+  // Get icon component using bracket notation to access the icons object
+  const IconComponent = (icons as Record<string, LucideIcon>)[name];
   
   if (IconComponent) {
     return <IconComponent {...props} />;
